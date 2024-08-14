@@ -1,0 +1,68 @@
+.Hamburger {
+  .icon {
+    width: 40px;
+    display: block;
+    position: relative;
+    z-index: 9999;
+    display: none;
+    margin: 0 16px;
+    @media (max-width: 1190px) {
+      display: block;
+    }
+    span {
+      width: 100%;
+      display: block;
+      height: 4px;
+      border-radius: 40px;
+      background: #000;
+      margin-bottom: 6px;
+      transition: 0.3s ease-in-out;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .Menu {
+    position: fixed;
+    top: 0;
+    right: -60%;
+    background: #eeeeee;
+    height: 100vh;
+    width: 50%;
+    z-index: 999;
+    padding: 80px 50px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: 0.3s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+
+    @media (max-width: 640px) {
+      width: 90%;
+    }
+    ul {
+      li {
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .menuActive {
+    right: 0 !important;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.active {
+  span {
+    &:first-child {
+      transform: rotate(45deg) translateX(8px);
+    }
+    &:last-child {
+      transform: rotate(-45deg) translateX(6px);
+    }
+  }
+}
+// .menu_active {
+//   right: 0;
+//   top: 0;
+// }
