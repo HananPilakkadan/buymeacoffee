@@ -10,8 +10,6 @@ const CommonModal = ({
   selectedOption,
   handleChange,
   options,
-  genderData,
-  chatAvailability,
   body,
   heading,
   isSelect,
