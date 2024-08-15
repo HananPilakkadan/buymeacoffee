@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Spotlight from "../../components/Spotlight";
 import ExpressSection from "../../components/ExpressSection";
 import { IoRadioButtonOn } from "react-icons/io5";
@@ -6,8 +6,12 @@ import { FaSmile } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 import Creators from "../../components/Creators";
 import Footer from "../../components/Footer";
+import PreLoader from "../../PreLoader";
+import { useStore } from "react-redux";
+import { useCreators } from "../../components/Creators/useCreators";
 
 const Home = () => {
+  const { isLoading } = useCreators();
   const ExpressSections = [
     {
       icon: <FaSmile />,
@@ -36,18 +40,24 @@ const Home = () => {
   ];
   return (
     <>
-      <Spotlight />
-      {ExpressSections?.map(({ heading, icon, description, type }) => (
-        <ExpressSection
-          icon={icon}
-          heading={heading}
-          description={description}
-          type={type}
-        />
-      ))}
+      {isLoading ? (
+        <PreLoader />
+      ) : (
+        <>
+          <Spotlight />
+          {ExpressSections?.map(({ heading, icon, description, type }) => (
+            <ExpressSection
+              icon={icon}
+              heading={heading}
+              description={description}
+              type={type}
+            />
+          ))}
 
-      <Creators />
-      <Footer />
+          <Creators />
+          <Footer />
+        </>
+      )}
     </>
   );
 };

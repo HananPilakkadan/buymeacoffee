@@ -1,3 +1,5 @@
+@import "../../styles/common.scss";
+
 .Hamburger {
   .icon {
     width: 40px;
@@ -62,7 +64,68 @@
     }
   }
 }
-// .menu_active {
-//   right: 0;
-//   top: 0;
-// }
+.header {
+  &_left_container {
+    &_search {
+      width: 90%;
+      margin: 0 auto;
+      margin-left: 20px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid $primary-border;
+      margin-right: 20px;
+      border-radius: 50px;
+      transition: 0.3s ease-in-out;
+      background: #fff;
+      svg {
+        margin-right: 10px;
+      }
+      input {
+        border: none;
+        background: #fff;
+        box-sizing: border-box;
+        &:focus {
+          border: none;
+          outline: none;
+        }
+      }
+      &:focus-within,
+      &:hover {
+        border-color: $primary-color-deep;
+      }
+    }
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  button {
+    margin: 0 14px;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 12px 20px;
+    transition: 0.3s ease-in-out;
+    border-radius: 50px;
+    border: 1px solid $primary-color-deep;
+    color: $primary-color-deep;
+
+    &:hover {
+      border: 1px solid $primary-color-deep;
+      color: $primary-color-deep;
+    }
+    &.active {
+      font-size: 16px;
+      background: $primary-color;
+      padding: 12px 20px;
+      border-radius: 50px;
+      color: #fff;
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+        background: $primary-color-deep;
+      }
+    }
+  }
+}

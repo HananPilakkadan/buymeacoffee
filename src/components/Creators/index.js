@@ -1,13 +1,14 @@
 import React from "react";
 import { GiPlainCircle } from "react-icons/gi";
 import SwiperCore from "swiper";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Style from "./Creators.module.scss";
 import { useCreators } from "./useCreators";
+
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css";
 SwiperCore.use([Autoplay, Navigation]);
 
 const Creators = () => {

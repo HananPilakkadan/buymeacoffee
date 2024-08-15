@@ -26,6 +26,7 @@ const Hamburger = () => {
 
   const handleHamburger = () => {
     setIsActive(!isActive);
+    document.body.classList.add("hidden");
   };
   return (
     <div className={`${Style.Hamburger} ${isActive ? Style.active : ""}`}>
@@ -34,6 +35,12 @@ const Hamburger = () => {
         <span></span>
       </div>
       <div className={`${Style.Menu} ${isActive && Style.menuActive}`}>
+        {window?.innerWidth <= 650 && (
+          <div className={Style.header_left_container_search}>
+            <IoSearch />
+            <input type="text" placeholder="Search Creators" />
+          </div>
+        )}
         <ul>
           {menu?.map((item, i) => (
             <li key={i}>
@@ -43,14 +50,12 @@ const Hamburger = () => {
         </ul>
         {window.innerWidth <= 650 && (
           <>
-            <div className={Style.header_left_container_search}>
-              <IoSearch />
-              <input type="text" placeholder="Search Creators" />
+            <div className={Style.buttonGroup}>
+              <button className={Style.header_left_container_btn}>
+                Sign in
+              </button>
+              <button className={Style.active}>Sign Up</button>
             </div>
-            <button className={Style.header_left_container_btn}>Sign in</button>
-            <button className={Style.header_left_container_btn_active}>
-              Sign Up
-            </button>
           </>
         )}
       </div>

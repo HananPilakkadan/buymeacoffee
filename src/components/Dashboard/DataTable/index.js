@@ -11,6 +11,8 @@ const DataTable = ({
   data,
   loadMore,
   lastElementRef,
+  handleDeleteCreator,
+  handleEditCreator,
 }) => {
   return (
     <div className={Style.table_container}>
@@ -78,8 +80,16 @@ const DataTable = ({
                   </td>
                   <td className={Style.td}>
                     <div className={Style.button_group}>
-                      <button className={Style.edit}>Edit</button>
-                      <button className={Style.trash}>
+                      <button
+                        className={Style.edit}
+                        onClick={() => handleEditCreator(row)}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className={Style.trash}
+                        onClick={() => handleDeleteCreator(row?.id)}
+                      >
                         <FiTrash2 />
                       </button>
                     </div>
@@ -90,7 +100,11 @@ const DataTable = ({
       </table>
       {!isLoading && (
         <div className={Style.bottom}>
-          <button className={Style.laodMore} onClick={(e) => loadMore(e)}>
+          <button
+            className={Style.laodMore}
+            onClick={(e) => loadMore(e)}
+            disabled={isPaginationLoading}
+          >
             {isPaginationLoading ? (
               <Loader />
             ) : (

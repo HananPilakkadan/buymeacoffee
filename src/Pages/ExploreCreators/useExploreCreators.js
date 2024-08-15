@@ -9,8 +9,7 @@ import {
 export const useExploreCreators = () => {
   const api = process.env.REACT_APP_DASHBOARD_CREATORS_API;
   const dispatch = useDispatch();
-  //   const [creators, setCreators] = useState([]);
-  //   const [isLoading, setIsLoading] = useState(false);
+
   const [loadMoreParams, setLoadMoreParams] = useState({
     page: 1,
     per_page: 10,
@@ -31,7 +30,6 @@ export const useExploreCreators = () => {
     avtiveMales,
     activeFemales,
   } = useSelector((state) => state.creators);
-
   const genderData = {
     label: "Gender Distribution",
     firstData: maleCount,

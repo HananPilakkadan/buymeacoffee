@@ -1,24 +1,20 @@
-import React, { useEffect } from "react";
-import { Modal, Button } from "react-bootstrap";
+import React from "react";
+import { Button, Modal } from "react-bootstrap";
 import { IoMdClose } from "react-icons/io";
 import Select from "react-select";
-
 import "./modal.scss";
-import PieChart from "../PieChart";
-import { useExploreCreators } from "../../Pages/ExploreCreators/useExploreCreators";
-import ChartContainer from "../ChartContainer";
 
-const StatusModal = ({
+const CommonModal = ({
   show,
   handleClose,
   selectedOption,
   handleChange,
   options,
-  creators,
-  maleCount,
-  femaleCount,
   genderData,
   chatAvailability,
+  body,
+  heading,
+  isSelect,
 }) => {
   return (
     <Modal
@@ -30,13 +26,15 @@ const StatusModal = ({
     >
       <Modal.Header>
         <div className="header-left">
-          <Modal.Title>Stats</Modal.Title>
-          <Select
-            value={selectedOption}
-            onChange={handleChange}
-            options={options}
-            defaultValue={options[0]}
-          />
+          <Modal.Title>{heading}</Modal.Title>
+          {isSelect && (
+            <Select
+              value={selectedOption}
+              onChange={handleChange}
+              options={options}
+              defaultValue={options[0]}
+            />
+          )}
         </div>
         <Button
           variant="link"
@@ -46,23 +44,9 @@ const StatusModal = ({
           <IoMdClose />
         </Button>
       </Modal.Header>
-      <Modal.Body>
-        {selectedOption?.value === "male" ? (
-          <ChartContainer
-            data={genderData}
-            color={["#9bdfc4", "#62b2fd"]}
-            heading="Gender Distribution"
-          />
-        ) : (
-          <ChartContainer
-            data={chatAvailability}
-            color={["#9bdfc4", "#98cb82"]}
-            heading="Gender Distribution"
-          />
-        )}
-      </Modal.Body>
+      <Modal.Body>{body}</Modal.Body>
     </Modal>
   );
 };
 
-export default StatusModal;
+export default CommonModal;
