@@ -1,11 +1,11 @@
 import React from "react";
-import Spotlight from "../Spotlight";
-import ExpressSection from "../ExpressSection";
+import Spotlight from "../../components/Spotlight";
+import ExpressSection from "../../components/ExpressSection";
 import { IoRadioButtonOn } from "react-icons/io5";
 import { FaSmile } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
-import Creators from "../Creators";
-import Footer from "../Footer";
+import Creators from "../../components/Creators";
+import Footer from "../../components/Footer";
 
 const Home = () => {
   const ExpressSections = [

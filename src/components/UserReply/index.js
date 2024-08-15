@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { FaPlay } from "react-icons/fa6";
 import { assets } from "../../assets/assets";
 import Style from "./UserReply.module.scss";
-import { FaPlay } from "react-icons/fa6";
-import { SiStryker } from "react-icons/si";
 
 const UserReply = ({ type, richColor, reply }) => {
   const [time, setTime] = useState(16);

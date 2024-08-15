@@ -11,8 +11,10 @@ import men_user from "./Images/men_user.png";
 import map_icon from "./Images/map_icon.png";
 import app_store from "./Images/App Store.png";
 import google_play from "./Images/Google Play.png";
+import user from "./Images/user.webp";
 export const assets = {
   Logo,
+  user,
   Main_screen,
   blue_memoji,
   green_memoji,

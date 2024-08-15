@@ -33,6 +33,9 @@
           li {
             margin-bottom: 12px;
             color: $primary-dark;
+            :hover {
+              color: $primary-color;
+            }
           }
         }
       }

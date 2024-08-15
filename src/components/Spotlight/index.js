@@ -13,7 +13,7 @@ const Spotlight = () => {
       phone: "",
     },
     onSubmit: async (values, { setErrors, setFieldValue }) => {
-      if (values?.phone?.length == 0) {
+      if (values?.phone?.length === 0) {
         toast.error("Please enter mobile number");
         return;
       }

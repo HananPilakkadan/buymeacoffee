@@ -12,7 +12,6 @@ SwiperCore.use([Autoplay, Navigation]);
 
 const Creators = () => {
   const { data } = useCreators();
-  console.log(data, "data");
   return (
     <div className={Style.creators}>
       <div className={Style.creators_wrapper}>

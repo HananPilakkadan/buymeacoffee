@@ -27,7 +27,6 @@ const Hamburger = () => {
   const handleHamburger = () => {
     setIsActive(!isActive);
   };
-  console.log(isActive);
   return (
     <div className={`${Style.Hamburger} ${isActive ? Style.active : ""}`}>
       <div className={Style.icon} onClick={handleHamburger}>
