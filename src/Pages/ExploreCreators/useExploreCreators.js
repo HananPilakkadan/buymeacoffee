@@ -32,12 +32,28 @@ export const useExploreCreators = () => {
     activeFemales,
   } = useSelector((state) => state.creators);
 
+  const genderData = {
+    label: "Gender Distribution",
+    firstData: maleCount,
+    secondData: femaleCount,
+    firstPercentage: ((maleCount / creators?.length) * 100).toFixed(2),
+    secondPercentage: ((femaleCount / creators?.length) * 100).toFixed(2),
+  };
+
+  const chatAvailability = {
+    label: "Availability for Chat",
+    firstData: avtiveMales,
+    secondData: activeFemales,
+    firstPercentage: ((avtiveMales / creators?.length) * 100).toFixed(2),
+    secondPercentage: ((activeFemales / creators?.length) * 100).toFixed(2),
+  };
+
   useEffect(() => {
     if (isLoadMore && lastElementRef.current) {
       lastElementRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [creators, isLoadMore]);
-  console.log(maleCount, femaleCount, "lll");
+
   useEffect(() => {
     if (creators?.length === 0) {
       dispatch(fetchCreators(api));
@@ -66,23 +82,7 @@ export const useExploreCreators = () => {
   const handleChange = (selectedOption) => {
     setSelectedOption(selectedOption);
   };
-  console.log(activeFemales, avtiveMales, "chattt");
-  const genderData = {
-    label: "Gender Distribution",
-    firstData: maleCount,
-    secondData: femaleCount,
-    firstPercentage: ((maleCount / creators?.length) * 100).toFixed(2),
-    secondPercentage: ((femaleCount / creators?.length) * 100).toFixed(2),
-  };
 
-  const chatAvailability = {
-    label: "Availability for Chat",
-    firstData: avtiveMales,
-    secondData: activeFemales,
-    firstPercentage: ((avtiveMales / creators?.length) * 100).toFixed(2),
-    secondPercentage: ((activeFemales / creators?.length) * 100).toFixed(2),
-  };
-  console.log(genderData);
   return {
     isLoading,
     isPaginationLoading,

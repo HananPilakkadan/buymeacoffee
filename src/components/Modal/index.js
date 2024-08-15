@@ -20,7 +20,6 @@ const StatusModal = ({
   genderData,
   chatAvailability,
 }) => {
-  console.log(selectedOption, "data");
   return (
     <Modal
       show={show}
